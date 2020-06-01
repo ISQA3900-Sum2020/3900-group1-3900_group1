@@ -1,0 +1,4 @@
+django
+braintree
+pillow
+weasyprint

@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
     'payment.apps.PaymentConfig',
+    'users.apps.UsersConfig',
+    'customers.apps.CustomersConfig',
 ]
 
 
@@ -158,3 +160,5 @@ Configuration.configure(
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+AUTH_USER_MODEL = 'users.Employee'

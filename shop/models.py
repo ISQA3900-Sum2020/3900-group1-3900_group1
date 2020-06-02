@@ -44,3 +44,14 @@ class Product(models.Model):
     def get_absolute_url(self):
             return reverse('shop:product_detail',
                            args=[self.id, self.slug])
+
+
+class Feedback(models.Model):
+    name = models.CharField(max_length=200)
+    email = models.EmailField(max_length=200)
+    subject = models. CharField(max_length=100)
+    description = models.CharField(max_length=500)
+    created_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name

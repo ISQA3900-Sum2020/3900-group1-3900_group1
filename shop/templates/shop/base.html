@@ -9,6 +9,7 @@
 <body>
   <div id="header">
     <a href="/" class="logo">My shop</a>
+    <a href="{% url 'users:edit_customer' pk=user.pk %}">Edit Customer</a>
   </div>
   <div id="subheader">
     <div class="cart">

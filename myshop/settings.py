@@ -161,3 +161,7 @@ Configuration.configure(
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 AUTH_USER_MODEL = 'users.User'
+
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'

@@ -30,11 +30,13 @@ def product_detail(request, id, slug):
                                 id=id,
                                 slug=slug,
                                 available=True)
+    user = request.user
     cart_product_form = CartAddProductForm()
     return render(request,
                   'shop/product/detail.html',
                   {'product': product,
-                   'cart_product_form': cart_product_form})
+                   'cart_product_form': cart_product_form,
+                   'user' : user})
 
 
 def product_new(request):

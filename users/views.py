@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template.context_processors import csrf
 from django.utils import timezone
@@ -18,6 +19,7 @@ def register_customer(request):
     return render(request, 'registration/customer_registration_form.html', args)
 
 
+@login_required
 def edit_customer(request, pk):
     customer = get_object_or_404(User, pk=pk)
     if request.method == "POST":
@@ -31,3 +33,10 @@ def edit_customer(request, pk):
         # edit
         form = CustomerForm(instance=customer)
     return render(request, 'registration/customer_edit.html', {'form': form})
+
+
+def customer_list(request):
+    customers = User.objects.filter(is_customer=True)
+    return render(request, 'customer_list.html',
+                  {'customers': customers})
+

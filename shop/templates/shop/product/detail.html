@@ -14,7 +14,13 @@
     <form action="{% url "cart:cart_add" product.id %}" method="post">
       {{ cart_product_form }}
       {% csrf_token %}
-      <input type="submit" value="Add to cart">
+
+      {% if user.is_staff %}
+          <a href="{% url 'shop:product_edit' pk=product.pk %}">Edit product</a>
+          <a href="{% url 'shop:product_delete' pk=product.pk %}">Delete</a>
+      {% else %}
+          <input type="submit" value="Add to cart">
+      {% endif %}
     </form>
     {{ product.description|linebreaks }}
   </div>

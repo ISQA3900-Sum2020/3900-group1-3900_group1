@@ -7,12 +7,6 @@ class CustomerList(admin.ModelAdmin):
 
     list_display = ('username', 'first_name', 'last_name', 'email', 'phone')
 
-    def date_joined(self, instance):
-        try:
-            return instance.user.date_joined
-        except ObjectDoesNotExist:
-            return 'ERROR!!'
-
     def username(self, instance):  # name of the method should be same as the field given in `list_display`
         try:
             return instance.user.username

@@ -54,3 +54,8 @@ def order_create(request):
     return render(request,
                   'orders/order/create.html',
                   {'cart': cart, 'form': form})
+
+
+def order_list(request):
+    orders = Order.objects.all()
+    return render(request, 'orders/order_list.html', {'orders' : orders})

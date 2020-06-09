@@ -64,7 +64,7 @@
                                <img src="{% static "img/Orders.jpg" %}" alt="orders"/>
                                <div class="caption">
                                    <h4>Total number of orders : {{ context.orderCount }}</h4>
-                                   <a class="btn btn-primary" href="{% url 'shop:category_list' %}"><span class="glyphicon glyphicon-th-list"></span> View list</a>
+                                   <a class="btn btn-primary" href="{% url 'orders:order_list' %}"><span class="glyphicon glyphicon-th-list"></span> View list</a>
                                </div>
                            </div>
                        </div>

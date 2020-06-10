@@ -60,6 +60,7 @@ def login(request):
                   {'login': login})
 
 
+
 def visitor_new(request):
     if request.method == "POST":
         form = VisitorForm(request.POST)

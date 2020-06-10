@@ -1,5 +1,6 @@
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
+
 <html>
 <head>
   <meta charset="utf-8" />
@@ -11,31 +12,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<<<<<<< HEAD
-  <div id="header">
-    <a href="/" class="logo">My shop</a>
-{#    <a href="{% url 'users:edit_customer' pk=user.pk %}">Edit Customer</a>#}
-    {% if user.is_authenticated %}
-        <a href="{% url 'logout' %}"><i class="fa fa-btn fa-sign-out"></i>Logout</a>
-        <a href="{% url 'password_change' %}"><i class="fa fa-btn fa-sign-out"></i>Change Password</a>
-    {% endif %}
-  </div>
-  <div id="subheader">
-    <div class="cart">
-      {% with total_items=cart|length %}
-          {% if cart|length > 0 %}
-            Your cart: 
-            <a href="{% url "cart:cart_detail" %}">
-              {{ total_items }} item{{ total_items|pluralize }},
-              ${{ cart.get_total_price }}
-            </a>
-          {% else %}
-            Your cart is empty.
-          {% endif %}
-        {% endwith %}
-    </div>
-  </div>
-=======
+
     <nav  class="navbar navbar-inverse">
         <ul class="nav navbar-nav">
             <li><a href="{% url 'users:home' %}">Home</a></li>
@@ -56,9 +33,10 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="{% url 'users:edit_customer' pk=user.pk %}">Edit Customer</a></li>
+                            <li><a href="{% url 'password_change' %}"><i class="fa fa-btn fa-sign-out"></i>Change Password</a></li>
                             <li><a href="{% url 'logout' %}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-{#                            <li><a href="{% url 'crm:change_password' %}"><i class="fa fa-btn"></i>Change password</a></li>#}
-{#                            #}
+
                         </ul>
                     </li>
                 {% else %}
@@ -66,7 +44,6 @@
                 {% endif %}
             </ul>
     </nav>
->>>>>>> 62ffc1134949490b6ff3fe62824bddc89bff81b8
   <div id="content">
     {% block content %}
     {% endblock %}

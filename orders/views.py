@@ -3,13 +3,15 @@ from django.shortcuts import render, redirect
 from .models import OrderItem
 from .forms import OrderCreateForm
 from cart.cart import Cart
+from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import get_object_or_404
 from .models import Order
 from django.conf import settings
 from django.http import HttpResponse
 from django.template.loader import render_to_string
-from weasyprint import HTML,CSS
+from weasyprint import HTML, CSS
+
 
 @staff_member_required
 def admin_order_pdf(request, order_id):
@@ -20,9 +22,10 @@ def admin_order_pdf(request, order_id):
     response['Content-Disposition'] = 'filename=\
         "order_{}.pdf"'.format(order.id)
     HTML(string=html).write_pdf(response,
-        stylesheets=[CSS(
-            settings.STATIC_ROOT + 'css/pdf.css')])
+                                stylesheets=[CSS(
+                                    settings.STATIC_ROOT + 'css/pdf.css')])
     return response
+
 
 @staff_member_required
 def admin_order_detail(request, order_id):
@@ -31,6 +34,7 @@ def admin_order_detail(request, order_id):
                   'admin/orders/order/detail.html',
                   {'order': order})
 
+@login_required
 def order_create(request):
     cart = Cart(request)
     if request.method == 'POST':
@@ -55,7 +59,7 @@ def order_create(request):
                   'orders/order/create.html',
                   {'cart': cart, 'form': form})
 
-
+@login_required
 def order_list(request):
     orders = Order.objects.all()
-    return render(request, 'orders/order_list.html', {'orders' : orders})
+    return render(request, 'orders/order_list.html', {'orders': orders})

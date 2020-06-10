@@ -36,7 +36,7 @@ def product_detail(request, id, slug):
                   'shop/product/detail.html',
                   {'product': product,
                    'cart_product_form': cart_product_form,
-                   'user' : user})
+                   'user': user})
 
 
 def product_new(request):
@@ -93,6 +93,7 @@ def category_edit(request, pk):
     return render(request, 'shop/category/category_edit.html', {'form': form,
                                                                 'pk': pk})
 
+
 def employee_home(request):
     categoryCount = str(Category.objects.all().count())
     productsCount = str(Product.objects.all().count())
@@ -104,6 +105,7 @@ def employee_home(request):
                "orderCount": orderCount}
 
     return render(request, 'shop/employee_home.html', {'context': context})
+
 
 def category_list(request):
     categories = Category.objects.all()
@@ -124,7 +126,7 @@ def product_delete(request, pk):
     if request.method == "POST":
         product.delete()
         return redirect('shop:product_list')
-    return render(request, 'shop/product/product_delete.html', {'product' : product})
+    return render(request, 'shop/product/product_delete.html', {'product': product})
 
 
 def home(request):

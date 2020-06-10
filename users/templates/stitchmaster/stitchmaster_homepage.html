@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+
+<html>
+
+
+{% load static %}
+
+<head>
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+    <link rel="stylesheet" href="{% static "css/styles.css" %}"/>
+
+    <meta charset="utf-8">
+    <title>Stitch Master</title>
+    <script src="https://kit.fontawesome.com/389be30571.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <ul class="nav">
+            <li><a href="{% url 'users:home' %}">Home</a></li>
+            <li><a href="{% url 'users:about' %}">About</a></li>
+            <li><a href="{% url 'users:faq' %}">Faq</a></li>
+            <li><a href="{% url 'users:visitor_new' %}">Contact</a></li>
+           <li><a href="{% url 'shop:employee_home' %}">Shop </a></li>
+           <li><a href="{% url 'cart:cart_detail' %}"><i class="fas fa-shopping-cart"></i></a></li>
+        </ul>
+    </nav>
+
+</header>
+
+
+<center><h1>Trendy</h1></center>
+
+
+<center><img src="{% static "img/stitchmaster_logo.png" %}" alt="StitchMasterLogo" width="204"><img
+        src="{% static "img/stitchmaster_logo.png" %}" alt="StitchMasterLogo" width="204"><img
+        src="{% static "img/stitchmaster_logo.png" %}" alt="StitchMasterLogo" width="204"><img
+        src="{% static "img/stitchmaster_logo.png" %}" alt="StitchMasterLogo" width="204"><img
+        src="{% static "img/stitchmaster_logo.png" %}" alt="StitchMasterLogo" width="204"><img
+        src="{% static "img/stitchmaster_logo.png" %}" alt="StitchMasterLogo" width="204"></center>
+<center><h2>Best Clothing Store In Town</h2></center>
+<nav2>
+    <center>
+        <ul class="nav2">
+            <li><a href="{% url 'users:login' %}">Sign in/register </a></li>
+            <li><a href="{% url 'shop:employee_home' %}">Shop Now </a></li>
+        </ul>
+    </center>
+</nav2>
+</body>
+
+</html>

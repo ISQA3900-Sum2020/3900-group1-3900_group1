@@ -3,8 +3,8 @@ from django.core.exceptions import ObjectDoesNotExist
 
 from .models import Customer, User
 
-class CustomerList(admin.ModelAdmin):
 
+class CustomerList(admin.ModelAdmin):
     list_display = ('username', 'first_name', 'last_name', 'email', 'phone')
 
     def username(self, instance):  # name of the method should be same as the field given in `list_display`

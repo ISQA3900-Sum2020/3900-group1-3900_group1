@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-
 from .models import Customer, User, visitor
 
 
@@ -28,3 +27,4 @@ class VisitorForm(forms.ModelForm):
     class Meta:
         model = visitor
         fields = ('cust_name', 'email', 'subject', 'message')
+

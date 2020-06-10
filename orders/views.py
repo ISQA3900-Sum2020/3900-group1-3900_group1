@@ -10,7 +10,7 @@ from .models import Order
 from django.conf import settings
 from django.http import HttpResponse
 from django.template.loader import render_to_string
-from weasyprint import HTML, CSS
+#from weasyprint import HTML, CSS
 
 
 @staff_member_required

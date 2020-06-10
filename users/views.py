@@ -73,3 +73,4 @@ def visitor_new(request):
         form = VisitorForm()
         # print("Else")
     return render(request, 'stitchmaster/contact_page.html', {'form': form})
+

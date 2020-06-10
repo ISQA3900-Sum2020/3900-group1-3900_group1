@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import Customer, User, visitor
+from .models import Customer, User
 
 
 class CustomerSignUpForm(UserCreationForm):
@@ -22,9 +22,4 @@ class CustomerForm(forms.ModelForm):
         model = User
         fields = ('first_name', 'last_name', 'email', 'phone')
 
-
-class VisitorForm(forms.ModelForm):
-    class Meta:
-        model = visitor
-        fields = ('cust_name', 'email', 'subject', 'message')
 

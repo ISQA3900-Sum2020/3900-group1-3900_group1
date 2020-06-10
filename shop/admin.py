@@ -19,4 +19,4 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(Feedback)
 class FeedbackAdmin(admin.ModelAdmin):
-    list_display = ["name", "email", "subject"]
+    list_display = ['name', 'email', 'subject', 'description', 'created_date']

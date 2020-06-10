@@ -60,18 +60,3 @@ def login(request):
                   {'login': login})
 
 
-
-def visitor_new(request):
-    if request.method == "POST":
-        form = VisitorForm(request.POST)
-        if form.is_valid():
-            visitors = form.save(commit=False)
-            visitors.created_date = timezone.now()
-            visitors.save()
-            return render(request, 'stitchmaster/contact_page.html',
-                          {'visitors': visitors})
-    else:
-        form = VisitorForm()
-        # print("Else")
-    return render(request, 'stitchmaster/contact_page.html', {'form': form})
-

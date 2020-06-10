@@ -18,6 +18,7 @@ urlpatterns = [
     path('category/<int:pk>/delete/', views.category_delete, name='category_delete'),
     path('shop/employee_home/', views.employee_home, name='employee_home'),
     path('shop/home/', views.home, name='home'),
+    path('shop/contact_page/', views.visitor_new, name='visitor_new'),
 ]
 
 if settings.DEBUG:

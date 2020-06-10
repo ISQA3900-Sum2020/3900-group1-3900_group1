@@ -13,12 +13,10 @@ urlpatterns = [
     path('customer_list/', views.customer_list, name='customer_list'),
     path('', views.home, name='home'),
     re_path(r'^home/$', views.home, name='home'),
-    path('contact_page/', views.visitor_new, name='visitor_new'),
     path('about_page/', views.about, name='about'),
     path('accounts/login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
     path('faq_page/', views.faq, name='faq'),
     #path('', include('django.contrib.auth.urls')),
-
     path('password_reset_form/',
          auth_views.PasswordResetView.as_view(),
          name='password_reset_form'),
@@ -31,11 +29,10 @@ urlpatterns = [
     path('reset/done/',
          auth_views.PasswordResetCompleteView.as_view(),
          name='password_reset_complete'),
-    path( r'accounts/password_change_form/',
-         auth_views.PasswordChangeView.as_view(template_name='registration/password_change_form.html'), name='password_change_form'),
+    path('password_change/',
+         auth_views.PasswordChangeView.as_view(),
+         name='password_change'),
     path('password_change/done/',
          auth_views.PasswordChangeDoneView.as_view(),
          name='password_change_done'),
-
-
 ]

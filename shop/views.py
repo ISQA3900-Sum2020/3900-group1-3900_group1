@@ -8,7 +8,7 @@ from .models import Category, Product
 from users.models import Customer, User
 from orders.models import Order
 from cart.forms import CartAddProductForm
-from .forms import ProductForm, CategoryForm
+from .forms import ProductForm, CategoryForm, VisitorForm
 
 
 def product_list(request, category_slug=None):
@@ -134,3 +134,18 @@ def home(request):
         return redirect('shop:employee_home')
     else:
         return redirect('shop:product_list')
+
+def visitor_new(request):
+    if request.method == "POST":
+        form = VisitorForm(request.POST)
+        if form.is_valid():
+            visitors = form.save(commit=False)
+            visitors.created_date = timezone.now()
+            visitors.save()
+            return render(request, 'shop/feedback_done.html')
+
+    else:
+        form = VisitorForm()
+        # print("Else")
+    return render(request, 'shop/contact_page.html', {'form': form})
+

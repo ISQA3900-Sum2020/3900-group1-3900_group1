@@ -1,23 +1,5 @@
-<
-script src
-
-=
-"https://use.fontawesome.com/e2f5ceb1b0.js"
-> <
-
-/
-script >
 nav ul {
-    list-style-type: none;
     margin: 50px;
-    padding: 50px;
-}
-
-nav li {
-    display: inline-block;
-    margin-right: 70px;
-    padding-top: 23px;
-
 }
 
 nav a {

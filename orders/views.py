@@ -62,4 +62,4 @@ def order_create(request):
 @login_required
 def order_list(request):
     orders = Order.objects.all()
-    return render(request, 'orders/order_list.html', {'orders': orders})
+    return render(request, 'orders/order/order_list.html', {'orders': orders})

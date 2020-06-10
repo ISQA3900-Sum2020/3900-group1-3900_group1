@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+/*@import url(http://fonts.googleapis.com/css?family=Ubuntu);*/
 
 body { 
     margin:0;
@@ -261,4 +261,53 @@ form div.field {
     background:#efefef;
     color:#666;
     border-radius:4px;
+}
+
+
+#about-container {
+    width: 100%;
+    height:50%;
+    display: table;
+}
+
+#about-image-container {
+    width:30%;
+    display:table-cell;
+    padding:10px;
+}
+
+#about-image-container img {
+    padding-top: 50px;
+    max-width: 80%;
+    padding-left:40px;
+}
+
+#about-description {
+    padding: 10px;
+    width: 80%;
+    font-size: xx-large;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+#about-description h4 {
+    color: maroon;
+    font-family: "Times New Roman";
+    font-weight: bolder;
+}
+
+#about-description p {
+    font-family: Arial;
+    font-size: 20px;
+    line-height: 36px;
+    letter-spacing: 1px;
+}
+
+#main-container {
+    border: 5px solid;
+    border-image: none;
+    width:auto;
+    display:table;
+    height: auto;
+    background-color: #f0f0f0;
 }

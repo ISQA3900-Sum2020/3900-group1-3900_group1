@@ -74,7 +74,7 @@ def category_new(request):
         if form.is_valid():
             category = form.save(commit=False)
             category.save()
-            return redirect('shop:product_list')
+            return redirect('shop:category_list')
     else:
         form = CategoryForm()
     return render(request, 'shop/category/category_new.html', {'form': form})
@@ -87,7 +87,7 @@ def category_edit(request, pk):
         if form.is_valid():
             category = form.save()
             category.save()
-            return redirect('shop:product_list')
+            return redirect('shop:category_list')
     else:
         form = CategoryForm(instance=category)
     return render(request, 'shop/category/category_edit.html', {'form': form,

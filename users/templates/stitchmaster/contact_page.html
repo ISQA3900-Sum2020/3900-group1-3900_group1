@@ -1,14 +1,14 @@
 <!DOCTYPE html>
  <html lang="en">
  {% extends 'shop/base.html' %} 
+ {% load static %}
  {% block content %} 
-     <h1>BE IN TOUCH</h1>
-     <p>If you don't dee what you're looking for, or would like us to work with you on a custom design, feel free to be in touch!</p> 
-     <form method="POST" class="visitor-form">
+     <h1 class="headings">BE IN TOUCH</h1>
+     <form method="POST" class="custom-form">
          {% csrf_token %} 
+          <p>If you don't dee what you're looking for, or would like us to work with you on a custom design, feel free to be in touch!</p> 
          {{ form.as_p }} 
+     <button type="submit" class="save btn btn-default">Save</button> 
       </form>
-         <button type="submit" class="save btn btn-default">Save</button> 
-
    {% endblock %}
   </html>

@@ -15,7 +15,7 @@
 
     <nav  class="navbar navbar-inverse">
         <ul class="nav navbar-nav">
-            <li><a href="{% url 'users:home' %}">Home</a></li>
+            <li><a href="{% url 'shop:home' %}">Home</a></li>
             <li><a href="{% url 'users:about' %}">About</a></li>
             <li><a href="{% url 'users:faq' %}">Faq</a></li>
             <li><a href="{% url 'shop:visitor_new' %}">Contact</a></li>
@@ -34,7 +34,7 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{% url 'users:edit_customer' pk=user.pk %}">Edit Customer</a></li>
-                            <li><a href="{% url 'password_change' %}"><i class="fa fa-btn fa-sign-out"></i>Change Password</a></li>
+                            <li><a href="{% url 'password_change' %}">Change Password</a></li>
                             <li><a href="{% url 'logout' %}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
 
                         </ul>

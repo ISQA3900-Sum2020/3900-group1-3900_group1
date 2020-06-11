@@ -166,11 +166,12 @@ padding:10px 14px;
 }
 
 #sidebar ul li a {
-display:block;
+     display:block;
+    color: black;
 }
 
 #sidebar ul li.selected {
-background:#5993bb;
+background:black;
 border-radius:4px;
 }
 

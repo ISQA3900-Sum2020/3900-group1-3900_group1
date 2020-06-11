@@ -10,7 +10,6 @@ from orders.models import Order
 from cart.forms import CartAddProductForm
 from .forms import ProductForm, CategoryForm, VisitorForm
 
-
 def product_list(request, category_slug=None):
     category = None
     categories = Category.objects.all()
@@ -38,7 +37,7 @@ def product_detail(request, id, slug):
                    'cart_product_form': cart_product_form,
                    'user': user})
 
-
+@staff_member_required
 def product_new(request):
     if request.method == "POST":
         form = ProductForm(request.POST, request.FILES)
@@ -53,6 +52,7 @@ def product_new(request):
     return render(request, 'shop/product/product_new.html', {'form': form})
 
 
+@staff_member_required
 def product_edit(request, pk):
     product = get_object_or_404(Product, pk=pk)
     if request.method == "POST":
@@ -67,7 +67,7 @@ def product_edit(request, pk):
         form = ProductForm(instance=product)
     return render(request, 'shop/product/product_edit.html', {'form': form})
 
-
+@staff_member_required
 def category_new(request):
     if request.method == "POST":
         form = CategoryForm(request.POST)
@@ -79,7 +79,7 @@ def category_new(request):
         form = CategoryForm()
     return render(request, 'shop/category/category_new.html', {'form': form})
 
-
+@staff_member_required
 def category_edit(request, pk):
     category = get_object_or_404(Category, pk=pk)
     if request.method == "POST":
@@ -94,6 +94,7 @@ def category_edit(request, pk):
                                                                 'pk': pk})
 
 
+@staff_member_required
 def employee_home(request):
     categoryCount = str(Category.objects.all().count())
     productsCount = str(Product.objects.all().count())
@@ -112,7 +113,7 @@ def category_list(request):
     return render(request, 'shop/category/categories_list.html',
                   {'categories': categories})
 
-
+@staff_member_required
 def category_delete(request, pk):
     category = get_object_or_404(Category, pk=pk)
     if request.method == "POST":
@@ -120,7 +121,7 @@ def category_delete(request, pk):
         return redirect('shop:category_list')
     return render(request, 'shop/category/category_delete.html', {'category': category})
 
-
+@staff_member_required
 def product_delete(request, pk):
     product = get_object_or_404(Product, pk=pk)
     if request.method == "POST":
@@ -132,8 +133,11 @@ def product_delete(request, pk):
 def home(request):
     if request.user.is_staff:
         return redirect('shop:employee_home')
-    else:
+    elif request.user.username:
         return redirect('shop:product_list')
+    else:
+        return redirect('users:home')
+
 
 def visitor_new(request):
     if request.method == "POST":
@@ -148,4 +152,3 @@ def visitor_new(request):
         form = VisitorForm()
         # print("Else")
     return render(request, 'shop/contact_page.html', {'form': form})
-

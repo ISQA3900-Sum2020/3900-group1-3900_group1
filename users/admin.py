@@ -1,7 +1,6 @@
 from django.contrib import admin
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.admin import UserAdmin
-
 from .models import Customer, User
 
 

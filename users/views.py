@@ -5,6 +5,10 @@ from django.utils import timezone
 from .models import *
 from .forms import *
 
+now = timezone.now()
+def home(request):
+   return render(request, 'shop/home.html',
+                 {'shope': home})
 
 def register_customer(request):
     if request.method == 'POST':

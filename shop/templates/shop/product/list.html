@@ -23,12 +23,28 @@
     <h1>{% if category %}{{ category.name }}{% else %}Products{% endif %}</h1>
     {% for product in products %}
       <div class="item">
-        <a href="{{ product.get_absolute_url }}">
-          <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
-        </a>
-        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br>
-        ${{ product.price }}
+        <div class="product-img-container">
+            <a href="{{ product.get_absolute_url }}">
+                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+            </a>
+        </div>
+      <div class="product-name">
+            <a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br>
+            ${{ product.price }}
       </div>
+      </div>
+{#        <div class="card-columns">#}
+{#        <div class="card-body">#}
+{#            <a href="{{ product.get_absolute_url }}">#}
+{#                <img src="{% if product.image %}{{ product.image.url }}#}
+{#                          {% else %}{% static "img/no_image.png" %}{% endif %}">#}
+{#            </a>#}
+{#        </div>#}
+{#        <div class="card-text">#}
+{#            <a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br>#}
+{#                ${{ product.price }}#}
+{#        </div>#}
+{#      </div>#}
     {% endfor %}
   </div>
 {% endblock %}

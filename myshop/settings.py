@@ -146,9 +146,9 @@ CART_SESSION_ID = 'cart'
 
 
 # Braintree settings - replace with your credentials after signing up for braintree account
-BRAINTREE_MERCHANT_ID = 'Merchant ID'  # Merchant ID
-BRAINTREE_PUBLIC_KEY = 'Public Key'   # Public Key
-BRAINTREE_PRIVATE_KEY = 'Private key'  # Private key
+BRAINTREE_MERCHANT_ID = 'mp2fkdwfzgvws6q6'  # Merchant ID
+BRAINTREE_PUBLIC_KEY = '727q3vmtsdssd6vh'   # Public Key
+BRAINTREE_PRIVATE_KEY = '3a8cb1be29a9d3c65ec7631fd75182cb'  # Private key
 
 
 Configuration.configure(

@@ -15,7 +15,10 @@ def register_customer(request):
         form = CustomerSignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/registration_done.html')
+            if request.user.is_superuser:
+                return redirect('users:customer_list')
+            else:
+                return render(request, 'registration/registration_done.html')
     args = {}
     args.update(csrf(request))
     args['form'] = CustomerSignUpForm()

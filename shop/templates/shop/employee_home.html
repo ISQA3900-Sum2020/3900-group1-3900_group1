@@ -52,6 +52,7 @@
                                <img src="{% static "img/Customers.jpg" %}" alt="customers"/>
                                <div class="caption">
                                    <h4>Total number of customers : {{ context.customerCount }}</h4>
+                                   <a class="btn btn-primary" href="{% url 'users:register_customer' %}"><span class="glyphicon glyphicon-plus"></span> Add</a>
                                    <a class="btn btn-primary" href="{% url 'users:customer_list' %}"><span class="glyphicon glyphicon-th-list"></span> View list</a>
                                </div>
                            </div>

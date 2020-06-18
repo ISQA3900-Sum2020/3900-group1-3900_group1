@@ -6,6 +6,11 @@
 {% endblock %}
 
 {% block content %}
+  <div class="order-navigation-bar">
+    <span class="order-navigation-selected">1. Shopping cart</span>
+    <span>2. Shipping Address</span>
+    <span>3. Payment options</span>
+  </div>
   <h1 class="headings">Your shopping cart</h1>
   <table class="table table-striped table-bordered table-hover custom-table" id="cart-details">
     <thead>
@@ -22,7 +27,7 @@
         {% for item in cart %}
         {% with product=item.product %}
           <tr>
-            <td>
+            <td id="image-column">
               <a href="{{ product.get_absolute_url }}">
                 <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
               </a>

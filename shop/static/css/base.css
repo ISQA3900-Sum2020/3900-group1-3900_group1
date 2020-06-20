@@ -27,6 +27,13 @@ border-radius:4px;
 padding:10px 20px;
 font-size:14px;
 border:0;
+    opacity: 1;
+}
+
+a.button:hover , input[type="submit"]:hover{
+    background-color: black;
+    opacity: 0.8;
+    color: white;
 }
 
 a.button.light {
@@ -108,12 +115,11 @@ border-radius:4px;
 }
 
 ul.errorlist {
-float:left;
-color:#ff0000;
-clear:both;
-font-size:13px;
-margin:0;
-padding:0;
+    color:#ff0000;
+    clear:both;
+    font-size:13px;
+    margin:0;
+    float: left;
 }
 
 
@@ -653,4 +659,20 @@ letter-spacing: 1px;
 
 #image-clear_id ~ #id_image{
     margin-left: 158px !important;
+}
+
+#product-filter{
+    margin: 40px 10px;
+}
+
+#product-filter div{
+    margin-top: 20px;
+}
+
+#product-filter input, #product-filter label{
+    margin: 0 10px;
+}
+
+#id_price_0 , #id_price_1{
+    width: 80px;
 }

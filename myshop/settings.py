@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'payment.apps.PaymentConfig',
     'users.apps.UsersConfig',
     'django.contrib.admin',
-
+    'django_filters',
 ]
 
 

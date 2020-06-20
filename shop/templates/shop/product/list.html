@@ -21,6 +21,14 @@
   </div>
   <div id="main" class="product-list">
     <h1>{% if category %}{{ category.name }}{% else %}Products{% endif %}</h1>
+    <form method="GET" class="filter-form" id="product-filter">
+      <span class="glyphicon glyphicon-filter"></span><span><b>Filters : </b></span>
+        <div>
+      {{ productFilter.form }}
+      <input type="submit" value="Filter" class="btn btn-default"/>
+        <input  type="submit" value="Clear" class="btn btn-default" onclick="resetform()">
+    </div>
+    </form>
     {% for product in products %}
       <div class="item">
         <div class="product-img-container">

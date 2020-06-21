@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'django.contrib.admin',
     'django_filters',
+    'coupons.apps.CouponsConfig',
 ]
 
 

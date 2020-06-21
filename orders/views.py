@@ -59,7 +59,7 @@ def order_create(request):
                   'orders/order/create.html',
                   {'cart': cart, 'form': form})
 
-@login_required
+@staff_member_required
 def order_list(request):
     orders = Order.objects.all()
     return render(request, 'orders/order/order_list.html', {'orders': orders})

@@ -1,12 +1,11 @@
 import braintree
-import weasyprint
 from django.shortcuts import render, redirect, get_object_or_404
 
 from orders.models import Order
 from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
 from django.conf import settings
-#import weasyprint
+import weasyprint
 from io import BytesIO
 
 
@@ -31,24 +30,24 @@ def payment_process(request):
             order.braintree_id = result.transaction.id
             order.save()
             # # create invoice e-mail
-            # subject = 'Stitch master - Invoice no. {}'.format(order.id)
-            # message = 'Thank you for shopping at Stitch master. Your total bill card to CC is.'
-            # email = EmailMessage(subject,
-            #                      message,
-            #                      'admin@myshop.com',
-            #                      [order.email])
+            subject = 'Stitch master - Invoice no. {}'.format(order.id)
+            message = 'Thank you for shopping at Stitch master. Your total bill card to CC is.'
+            email = EmailMessage(subject,
+                                 message,
+                                 'admin@myshop.com',
+                                 [order.email])
             # # generate PDF
-            # html = render_to_string('orders/order/pdf.html', {'order': order})
-            # out = BytesIO()
-            # stylesheets=[weasyprint.CSS(settings.STATIC_ROOT + 'css/pdf.css')]
-            # weasyprint.HTML(string=html).write_pdf(out,
-            #                                      stylesheets=stylesheets)
+            html = render_to_string('orders/order/pdf.html', {'order': order})
+            out = BytesIO()
+            stylesheets=[weasyprint.CSS(settings.STATIC_ROOT + 'css/pdf.css')]
+            weasyprint.HTML(string=html).write_pdf(out,
+                                                 stylesheets=stylesheets)
             # # attach PDF file
-            # email.attach('order_{}.pdf'.format(order.id),
-            #             out.getvalue(),
-            #             'application/pdf')
+            email.attach('order_{}.pdf'.format(order.id),
+                        out.getvalue(),
+                         'application/pdf')
             # #send e-mail
-            # email.send()
+            email.send()
             return redirect('payment:done')
         else:
             return redirect('payment:canceled')

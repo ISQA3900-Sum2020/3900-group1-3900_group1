@@ -676,3 +676,8 @@ letter-spacing: 1px;
 #id_price_0 , #id_price_1{
     width: 80px;
 }
+
+#credit-cards-img{
+    width: 22%;
+    margin-bottom: 20px;
+}

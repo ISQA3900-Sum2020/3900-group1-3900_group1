@@ -1,5 +1,5 @@
 {% extends "shop/base.html" %}
-
+{% load static %}
 {% block title %}Pay by credit card{% endblock %}
 
 {% block content %}
@@ -9,6 +9,7 @@
     <span class="order-navigation-selected">3. Payment options</span>
   </div>
   <h1>Pay by credit card</h1>
+    <img src="{% static "img/creditcardlogos.png" %}" id="credit-cards-img">
   <form action="." id="payment" method="post">
 
     <label for="card-number">Card Number</label>

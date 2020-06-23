@@ -28,7 +28,7 @@ class Store_ATS(unittest.TestCase):
 
         try:
             # attempt to find the Admin page
-            elem = driver.find_element_by_xpath('')
+            elem = driver.find_element_by_xpath('//*[@id="site-name"]/a')
             assert True
 
         except NoSuchElementException:

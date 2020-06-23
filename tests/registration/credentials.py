@@ -1,4 +1,4 @@
-admin_user = "admin"
+admin_user = "Admin"
 admin_pwd = "admin@1234"
 
 employee_user = "billcurton"

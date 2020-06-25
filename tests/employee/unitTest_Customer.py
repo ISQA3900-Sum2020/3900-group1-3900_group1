@@ -29,7 +29,7 @@ class Store_ATS(unittest.TestCase):
 
         try:
             # click on 'View List' on Customers card
-            elem = driver.find_element_by_xpath('//*[@id="content"]/div[2]/div/div/div/div/div[3]/div/div[2]/a').click()
+            elem = driver.find_element_by_xpath('//*[@id="content"]/div[2]/div/div/div/div/div[3]/div/div[2]/a[2]').click()
             time.sleep(2)
             elem = driver.find_element_by_xpath('//*[@id="customers-list"]/tbody/tr[1]/td[1]/a').click()
             time.sleep(2)

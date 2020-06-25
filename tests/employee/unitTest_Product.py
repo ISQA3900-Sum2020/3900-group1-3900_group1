@@ -47,7 +47,7 @@ class Store_ATS(unittest.TestCase):
             time.sleep(2)
             assert "New item created"
 
-            elem = driver.find_element_by_xpath('//*[@id="content"]/div/form/a[1]').click()
+            elem = driver.find_element_by_xpath('//*[@id="product-detail-description"]/form/div/a[1]').click()
             time.sleep(2)
             elem = driver.find_element_by_id("id_name")
             elem.send_keys(" update")
@@ -57,7 +57,7 @@ class Store_ATS(unittest.TestCase):
             time.sleep(2)
             assert "New item updated"
 
-            elem = driver.find_element_by_xpath('//*[@id="content"]/div/form/a[2]').click()
+            elem = driver.find_element_by_xpath('//*[@id="product-detail-description"]/form/div/a[2]').click()
             time.sleep(2)
             elem = driver.find_element_by_xpath('//*[@id="content"]/form/div/input').click()
             time.sleep(2)

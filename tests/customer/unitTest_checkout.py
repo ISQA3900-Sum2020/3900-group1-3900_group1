@@ -28,10 +28,10 @@ class Store_ATS(unittest.TestCase):
 
         try:
             # click on first product
-            elem = driver.find_element_by_xpath('//*[@id="main"]/div[1]/a[1]').click()
+            elem = driver.find_element_by_xpath('//*[@id="main"]/div[1]/div[2]/a').click()
             time.sleep(2)
             # click add to cart
-            elem = driver.find_element_by_xpath('//*[@id="content"]/div/form/input[3]').click()
+            elem = driver.find_element_by_xpath('//*[@id="product-detail-description"]/form/input[3]').click()
             time.sleep(2)
             # click checkout button
             elem = driver.find_element_by_xpath('//*[@id="content"]/p/a[2]').click()      
@@ -55,7 +55,17 @@ class Store_ATS(unittest.TestCase):
             time.sleep(2)
             assert "Shipping details entered"
 
-            ########## NEEDS TO BE UPDATED FOR PURCHASE CHECKOUT ###########
+            elem = driver.find_elements_by_xpath('//*[@id="content"]/h1')
+            # elem = driver.find_elements_by_xpath('//*[@id="card-number"]')
+            # elem[0].send_keys("4111 1111 1111 1111")
+            # elem = driver.find_elements_by_id("cvv")
+            # elem.send_keys("200")
+            # elem = driver.find_elements_by_id("expiration")
+            # elem.send_keys("03/21")
+            # time.sleep(2)
+            # elem = driver.find_element_by_xpath('//*[@id="payment"]/input[3]').click()
+            # elem = driver.find_element_by_xpath('//*[@id="content"]/h1')
+            assert "Payment blocks selenium, but header is found"
 
         except NoSuchElementException:
             self.fail("Item not added to cart")

@@ -33,10 +33,15 @@ class Store_ATS(unittest.TestCase):
             # click add to cart
             elem = driver.find_element_by_xpath('//*[@id="product-detail-description"]/form/input[3]').click()
             time.sleep(2)  
-            # find first item added to cart
-            elem = driver.find_elements_by_xpath('//*[@id="cart-details"]/tbody/tr[1]')
+            # apply coupon
+            elem = driver.find_elements_by_id('id_code')
+            elem[0].send_keys("JULY4TH")
+            elem = driver.find_element_by_xpath('//*[@id="content"]/form/input[2]').click()
+
+            # find coupon
+            elem = driver.find_element_by_xpath('//*[@id="cart-details"]/tbody/tr[3]/td[1]')
             
-            assert True
+            assert "Coupon applied"
 
         except NoSuchElementException:
             self.fail("Item not added to cart")

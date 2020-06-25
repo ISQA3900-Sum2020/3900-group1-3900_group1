@@ -1,8 +1,8 @@
 admin_user = "Admin"
 admin_pwd = "admin@1234"
 
-employee_user = "billcurton"
-employee_pwd = "testing@123"
+employee_user = "Rose"
+employee_pwd = "employee@1234"
 
 customer_user = "testcustomer"
 customer_pwd = "testing@123"

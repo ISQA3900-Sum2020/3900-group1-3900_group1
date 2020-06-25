@@ -1,2 +1,2 @@
-employee_user = "billcurton"
-employee_pwd = "testing@123"
+employee_user = "Rose"
+employee_pwd = "employee@1234"
